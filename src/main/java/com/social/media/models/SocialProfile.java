@@ -14,9 +14,8 @@ public class SocialProfile {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
-    @OneToOne(mappedBy = "socialProfile")//this will automatically create a foreign key in thi table
-
     @JsonIgnore
+    @OneToOne()
+    @JoinColumn(name = "Social_User_ID")//by this annotation we define the name of the foreign key
     private SocialUser socialUser;
 }

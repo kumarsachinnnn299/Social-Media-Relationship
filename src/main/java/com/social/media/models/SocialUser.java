@@ -19,8 +19,7 @@ public class SocialUser {
     private Long id;
 
 
-    @OneToOne//we have added this in both the entities to make the relations ship one to one  as well as bidirectional
-    @JoinColumn(name = "social_profile_id")//by this annotation we define the name of the foreign key
+    @OneToOne(mappedBy = "socialUser")//we have added this in both the entities to make the relations ship one to one  as well as bidirectional
     private SocialProfile socialProfile;
 
     @OneToMany(mappedBy = "socialUser")
