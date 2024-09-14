@@ -19,7 +19,7 @@ public class SocialUser {
     private Long id;
 
 
-    @OneToOne(mappedBy = "socialUser")//we have added this in both the entities to make the relations ship one to one  as well as bidirectional
+    @OneToOne(mappedBy = "socialUser", cascade = CascadeType.ALL)//we have added this in both the entities to make the relations ship one to one  as well as bidirectional
     private SocialProfile socialProfile;
 
     @OneToMany(mappedBy = "socialUser")
@@ -39,5 +39,12 @@ public class SocialUser {
     public int hashCode()
     {
         return Objects.hash(id);
+    }
+
+    //this custom setter method is maintaining the consistency in bidirectional relationship between socialUser and socialProfile
+    public void setSocialProfile(SocialProfile socialProfile)
+    {
+        socialProfile.setSocialUser(this);
+        this.socialProfile=socialProfile;
     }
 }
