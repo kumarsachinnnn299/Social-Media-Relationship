@@ -21,7 +21,7 @@ public class SocialProfile {
     @JoinColumn(name = "Social_User_ID")//by this annotation we define the name of the foreign key
     private SocialUser socialUser;
 
-    //custom setter method to set the bidirectional relationship between socialUser and socialProfile
+    //custom setter method is curcial to set the bidirectional relationship between socialUser and socialProfile
     public void setSocialUser(SocialUser socialUser)
     {
 

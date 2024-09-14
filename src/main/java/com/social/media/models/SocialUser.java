@@ -41,7 +41,7 @@ public class SocialUser {
         return Objects.hash(id);
     }
 
-    //this custom setter method is maintaining the consistency in bidirectional relationship between socialUser and socialProfile
+    //this custom setter method is crucial for maintaining the consistency in bidirectional relationship between socialUser and socialProfile
     public void setSocialProfile(SocialProfile socialProfile)
     {
         socialProfile.setSocialUser(this);
