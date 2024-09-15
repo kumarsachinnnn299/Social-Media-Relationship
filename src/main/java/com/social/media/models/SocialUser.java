@@ -19,10 +19,15 @@ public class SocialUser {
     private Long id;
 
 
+    /* Cascading type we can either use CascadeType.All
+     or
+    @OneToOne(mappedBy = "socialUser", cascade = {CascadeType.Remove, CascadeType.Persist,
+    CascadeType.Merge}) whatever we want
+    * */
     @OneToOne(mappedBy = "socialUser", cascade = CascadeType.ALL)//we have added this in both the entities to make the relations ship one to one  as well as bidirectional
     private SocialProfile socialProfile;
 
-    @OneToMany(mappedBy = "socialUser")
+    @OneToMany(mappedBy = "socialUser",cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     private List<Post> posts=new ArrayList<Post>();
 
     @ManyToMany
