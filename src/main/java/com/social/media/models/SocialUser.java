@@ -30,7 +30,9 @@ public class SocialUser {
     @OneToMany(mappedBy = "socialUser",cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     private List<Post> posts=new ArrayList<Post>();
 
-    @ManyToMany
+
+    @ManyToMany()
+    //    @ManyToMany(fetch = FetchType.EAGER)//We can use this to change the fetch type
     @JoinTable(
             name = "user_group",
             joinColumns = @JoinColumn(name="user_id"),
